@@ -18,8 +18,6 @@ export default function CodeReader({
   <link rel="canonical" href="${ogMetaTags.url}" />
   <meta property="og:image" content="${ogMetaTags.image}" />
   <meta property="og:type" content="${ogMetaTags.type}" />
-  <meta property="og:author" content="${ogMetaTags.author}" />
-  <meta property="author" content="${ogMetaTags.author}" />
   `
   const vueCode = `
   meta: {
@@ -28,7 +26,6 @@ export default function CodeReader({
     url: '${ogMetaTags.url}',
     image: '${ogMetaTags.image}',
     type: '${ogMetaTags.type}',
-    author: '${ogMetaTags.author}'
   }`
 
   const nextCode = `
@@ -40,8 +37,6 @@ export default function CodeReader({
     <link rel="canonical" href="${ogMetaTags.url}" />
     <meta property="og:image" content="${ogMetaTags.image}" />
     <meta property="og:type" content="${ogMetaTags.type}" />
-    <meta property="og:author" content="${ogMetaTags.author}" />
-    <meta property="author" content="${ogMetaTags.author}" />
   </Head>`
 
   const nuxtCode = `
@@ -54,7 +49,6 @@ export default function CodeReader({
       { hid: 'og:url', property: 'og:url', content: '${ogMetaTags.url}' },
       { hid: 'og:image', property: 'og:image', content: '${ogMetaTags.image}' },
       { hid: 'og:type', property: 'og:type', content: '${ogMetaTags.type}' },
-      { hid: 'og:author', property: 'og:author', content: '${ogMetaTags.author}' }
     ]
   }`
 
@@ -65,8 +59,8 @@ export default function CodeReader({
 
 
   return (
-    <div className="mt-5 h-full w-full">
-      <pre className="relative h-full w-full overflow-auto bg-gray-800 text-white p-4 rounded-md">
+    <div className="relative mt-5 h-full w-full">
+      <pre className="h-full w-full overflow-auto bg-gray-800 text-white p-4 rounded-md">
         <code className="language-javascript">
           {codeLang === "react" && reactCode}
           {codeLang === "vue" && vueCode}
@@ -74,11 +68,11 @@ export default function CodeReader({
           {codeLang === "nuxt" && nuxtCode}
         </code>
 
+
+      </pre>
         <div className="absolute top-2 right-2" onClick={handleCopyCode}>
           <img src="/icons/copy.svg" alt="Icon Copy" className="h-5 w-5" />
         </div>
-
-      </pre>
     </div>
   )
 }

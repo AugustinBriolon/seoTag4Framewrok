@@ -4,5 +4,4 @@ export interface OgMetaTags {
   url: string;
   image: string;
   type: string;
-  author: string;
 }
