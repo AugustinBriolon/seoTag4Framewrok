@@ -2,8 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Urbanist';
+  src: url('/fonts/Urbanist.ttf') format('truetype');
+}
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.bg-gradient {
+  background: linear-gradient(90deg, #3b83f619 25%, #22c55e19 75%);
 }

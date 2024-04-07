@@ -10,7 +10,7 @@ import App from './App.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Theme>
+    <Theme hasBackground={false}>
       <App />
       <Toaster position="bottom-right" closeButton richColors expand={true} />
     </Theme>
