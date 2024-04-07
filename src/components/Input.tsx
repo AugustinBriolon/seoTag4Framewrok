@@ -1,6 +1,5 @@
 import React from 'react';
 import { HoverCard } from '@radix-ui/themes';
-import clsx from 'clsx';
 
 export default function Input({
   id,
