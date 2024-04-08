@@ -73,8 +73,25 @@ export default function CodeReader({
       { rel: "canonical", href: '${ogMetaTags.url}' }
     ]
   }`
+
+  const angularCode = `
+  // You need : import { Title, Meta } from '@angular/platform-browser';
+
+  constructor(private metaTagService: Meta) {}
+  ngOnInit() {
+    this.metaTagService.addTags([
+      { name: 'description', content: '${ogMetaTags.description}' },
+      { property: 'og:title', content: '${ogMetaTags.title}' },
+      { property: 'og:description', content: '${ogMetaTags.description}' },
+      { property: 'og:url', content: '${ogMetaTags.url}' },
+      { property: 'og:image', content: '${ogMetaTags.image}' },
+      { property: 'og:type', content: '${ogMetaTags.type}' },
+    ]);
+  }
+  `
+
   const handleCopyCode = () => {
-    navigator.clipboard.writeText(codeLang === "react" ? reactCode : codeLang === "vue" ? vueCode : codeLang === "next" ? nextCode : nuxtCode)
+    navigator.clipboard.writeText(codeLang === "react" ? reactCode : codeLang === "vue" ? vueCode : codeLang === "next" ? nextCode : codeLang === "nuxt" ? nuxtCode : angularCode)
     toast.success("Code copied to clipboard")
   }
 
@@ -87,13 +104,14 @@ export default function CodeReader({
           {codeLang === "vue" && vueCode}
           {codeLang === "next" && nextCode}
           {codeLang === "nuxt" && nuxtCode}
+          {codeLang === "angular" && angularCode}
         </code>
 
 
       </pre>
-        <div className="absolute top-2 right-2" onClick={handleCopyCode}>
-          <img src="/icons/copy.svg" alt="Icon Copy" className="h-5 w-5" />
-        </div>
+      <div className="absolute top-2 right-2" onClick={handleCopyCode}>
+        <img src="/icons/copy.svg" alt="Icon Copy" className="h-5 w-5" />
+      </div>
     </div>
   )
 }

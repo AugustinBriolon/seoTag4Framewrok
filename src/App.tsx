@@ -21,11 +21,11 @@ export default function App() {
     return (
       <p className='text-xs'>
         <span className={clsx(
-          value.length > 70 ? "text-red-500" : value.length >= 40 ? "text-green-500" : value.length >= 25 ? "text-orange-500" : "text-red-500",
+          value.length > 80 ? "text-red-500" : value.length >= 70 ? "text-orange-500" : value.length >= 40 ? "text-green-500" : value.length >= 25 ? "text-orange-500" : "text-red-500",
           "font-bold"
         )}>
-          {value.length} </span>
-        characters
+          {value.length}
+        </span> characters
       </p>
     )
   }
@@ -33,7 +33,7 @@ export default function App() {
     return (
       <p className="text-xs">
         <span className={clsx(
-          value.length > 160 ? "text-red-500" : value.length >= 150 ? "text-green-500" : value.length >= 100 ? "text-orange-500" : "text-red-500",
+          value.length > 180 ? "text-red-500" : value.length >= 160 ? "text-orange-500" : value.length >= 150 ? "text-green-500" : value.length >= 100 ? "text-orange-500" : "text-red-500",
           "font-bold"
         )}>
           {value.length} </span>

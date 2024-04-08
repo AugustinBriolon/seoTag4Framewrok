@@ -8,7 +8,7 @@ export default function TagToCode({ ogMetaTags }: { ogMetaTags: OgMetaTags }) {
 
   return (
     <Tabs.Root defaultValue="react" className='gap-4'>
-      <Tabs.List>
+      <Tabs.List color="teal">
         <Tabs.Trigger value="react">
           <div className='flex items-center justify-center gap-2'>
             <img src="/icons/react.svg" alt="Icon React" className='h-5 w-5' />
@@ -33,6 +33,12 @@ export default function TagToCode({ ogMetaTags }: { ogMetaTags: OgMetaTags }) {
             <p>Nuxt</p>
           </div>
         </Tabs.Trigger>
+        <Tabs.Trigger value="angular">
+          <div className='flex items-center justify-center gap-2'>
+            <img src="/icons/angular.svg" alt="Icon Angular" className='h-5 w-5' />
+            <p>Angular</p>
+          </div>
+        </Tabs.Trigger>
       </Tabs.List>
 
       <div>
@@ -47,6 +53,9 @@ export default function TagToCode({ ogMetaTags }: { ogMetaTags: OgMetaTags }) {
         </Tabs.Content>
         <Tabs.Content value="nuxt">
           <CodeReader ogMetaTags={ogMetaTags} value={"nuxt"} />
+        </Tabs.Content>
+        <Tabs.Content value="angular">
+          <CodeReader ogMetaTags={ogMetaTags} value={"angular"} />
         </Tabs.Content>
       </div>
     </Tabs.Root>
