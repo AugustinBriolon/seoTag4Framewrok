@@ -41,6 +41,11 @@ export default function App() {
       </p>
     )
   }
+  const imageHint = () => {
+    return (
+      <p className="text-xs">1200 x630</p>
+    )
+  }
 
 
   return (
@@ -50,9 +55,9 @@ export default function App() {
         <section className="flex flex-col md:flex-row gap-8 h-fit w-full">
           <div className="w-full md:w-1/2 max-h-full flex flex-col gap-4">
             <Input id="titleTag" imageScr="/icons/title.svg" hint={() => titleHint(ogMetaTags.title)} hintContent="Try to provide a title tag of at least 40-45 characters, and a maximum of 65-70 characters." label="Title" placeholder="MetaTags for Frameworks" type="text" value={ogMetaTags.title} onChange={(e) => setOgMetaTags({ ...ogMetaTags, title: e.target.value })} />
-            <Input id="descriptionTag" textaerea imageScr="/icons/description.svg" hint={() => descriptionHint(ogMetaTags.description)} hintContent="Try to provide a description tag of at least 150 characters, and a maximum of 160 characters." label="Description" placeholder="My site description" type="text" value={ogMetaTags.description} onChange={(e) => setOgMetaTags({ ...ogMetaTags, description: e.target.value })} />
-            <Input id="urlTag" label="URL" imageScr="/icons/url.svg" placeholder="https://www.mysite.com" type="text" value={ogMetaTags.url} onChange={(e) => setOgMetaTags({ ...ogMetaTags, url: e.target.value })} />
-            <Input id="imageTag" label="Image" imageScr="/icons/image.svg" placeholder="https://www.mysite.com/ogimage.webp (1200px x 630px)" type="text" value={ogMetaTags.image} onChange={(e) => setOgMetaTags({ ...ogMetaTags, image: e.target.value })} />
+            <Input id="descriptionTag" textaerea imageScr="/icons/description.svg" label="Description" hint={() => descriptionHint(ogMetaTags.description)} hintContent="Try to provide a description tag of at least 150 characters, and a maximum of 160 characters." placeholder="Generate SEO meta tags for React, Vue.js, Nuxt, and others with MetaTags for Frameworks." type="text" value={ogMetaTags.description} onChange={(e) => setOgMetaTags({ ...ogMetaTags, description: e.target.value })} />
+            <Input id="urlTag" label="URL" imageScr="/icons/url.svg" placeholder="https://metatagframework.august1.dev/" type="text" value={ogMetaTags.url} onChange={(e) => setOgMetaTags({ ...ogMetaTags, url: e.target.value })} />
+            <Input id="imageTag" label="Image" imageScr="/icons/image.svg" hint={() => imageHint()} hintContent="Images should have an aspect ratio of 1.91:1. This means the width should be 1.9 X the height to avoid cropping issues. Your image must not exceed 8 MB. The image size should be 1200 X 630 px." placeholder="https://metatagframework.august1.dev/images/ogimage.webp" type="text" value={ogMetaTags.image} onChange={(e) => setOgMetaTags({ ...ogMetaTags, image: e.target.value })} />
             <Input id="typeTag" label="Type" imageScr="/icons/type.svg" placeholder="website" type="text" value={ogMetaTags.type} onChange={(e) => setOgMetaTags({ ...ogMetaTags, type: e.target.value })} />
           </div>
           <div className="w-full md:w-1/2 h-full overflow-hidden">

@@ -13,3 +13,7 @@
 .bg-gradient {
   background: linear-gradient(90deg, #3b83f619 25%, #22c55e19 75%);
 }
+
+*:focus:not(.no-focus) {
+  outline: none;
+}

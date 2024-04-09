@@ -58,7 +58,7 @@ export default function Input({
             onChange={onChange}
             disabled={disabled}
             readOnly={readOnly}
-            className='w-full h-32 border border-blue-500 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:border-1'
+            className='w-full h-32 rounded-xl px-4 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500/50 focus:border-transparent focus:border-1 no-focus'
           />
         ) : (
           <input
@@ -69,7 +69,7 @@ export default function Input({
             onChange={onChange}
             disabled={disabled}
             readOnly={readOnly}
-            className='w-full h-fit border border-blue-500 rounded-xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:outline'
+            className='w-full h-fit rounded-xl px-4 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500/50 focus:border-transparent focus:outline no-focus'
           />
         )
       }
