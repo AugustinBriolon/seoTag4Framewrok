@@ -11,84 +11,82 @@ export default function CodeReader({
   const codeLang = value
 
   const reactCode = `
-  // Valid for all Html files
+  ${ogMetaTags && `// Valid for all Html files`}
 
-  <meta property="og:title" content="${ogMetaTags.title}" />
-  <meta property="og:description" content="${ogMetaTags.description}" />
-  <meta property="description" content="${ogMetaTags.description}" />
-  <meta property="og:url" content="${ogMetaTags.url}" />
-  <meta property="og:image" content="${ogMetaTags.image}" />
-  <meta property="og:type" content="${ogMetaTags.type}" />
+  ${ogMetaTags.title && `<meta property="og:title" content="${ogMetaTags.title}" />`}
+  ${ogMetaTags.description && `<meta property="og:description" content="${ogMetaTags.description}" />`}
+  ${ogMetaTags.description && `<meta property="description" content="${ogMetaTags.description}" />`}
+  ${ogMetaTags.url && `<meta property="og:url" content="${ogMetaTags.url}" />`}
+  ${ogMetaTags.image && `<meta property="og:image" content="${ogMetaTags.image}" />`}
+  ${ogMetaTags.type && `<meta property="og:type" content="${ogMetaTags.type}" />`}
+  ${ogMetaTags.site_name && `<meta property="og:site_name" content="${ogMetaTags.site_name}" />`}
+  ${ogMetaTags.url && `<link rel="canonical" href="${ogMetaTags.url}" />`}`
 
-  <link rel="canonical" href="${ogMetaTags.url}" />
-  `
   const vueCode = `
-  // Using vue-meta (https://vue-meta.nuxtjs.org/)
+  ${ogMetaTags && `// Using vue-meta (https://vue-meta.nuxtjs.org/)`}
 
   {
     metaInfo: {
       meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' }
-        { hid: 'og:title', property: 'og:title', content: '${ogMetaTags.title}' },
-        { hid: 'description', name: 'description', content: '${ogMetaTags.description}' },
-        { hid: 'og:description', property: 'og:description', content: '${ogMetaTags.description}' },
-        { hid: 'og:url', property: 'og:url', content: '${ogMetaTags.url}' },
-        { hid: 'og:image', property: 'og:image', content: '${ogMetaTags.image}' },
-        { hid: 'og:type', property: 'og:type', content: '${ogMetaTags.type}' },
+        ${ogMetaTags.title && `{ hid: 'og:title', property: 'og:title', content: '${ogMetaTags.title}' },`}
+        ${ogMetaTags.description && `{ hid: 'description', name: 'description', content: '${ogMetaTags.description}' },`}
+        ${ogMetaTags.description && `{ hid: 'og:description', property: 'og:description', content: '${ogMetaTags.description}' },`}
+        ${ogMetaTags.url && `{ hid: 'og:url', property: 'og:url', content: '${ogMetaTags.url}' },`}
+        ${ogMetaTags.image && `{ hid: 'og:image', property: 'og:image', content: '${ogMetaTags.image}' },`}
+        ${ogMetaTags.site_name && `{ hid: 'og:site_name', property: 'og:site_name', content: '${ogMetaTags.site_name},`}
+        ${ogMetaTags.type && `{ hid: 'og:type', property: 'og:type', content: '${ogMetaTags.type}' },`}
       ]
     }
   }`
 
   const nextCode = `
-  // Using Next Head (https://nextjs.org/docs/api-reference/next/head)
+  ${ogMetaTags && `// Using Next Head (https://nextjs.org/docs/api-reference/next/head)`}
 
   <Head>
-    <meta property="og:title" content="${ogMetaTags.title}" />
-    <meta property="og:description" content="${ogMetaTags.description}" />
-    <meta property="description" content="${ogMetaTags.description}" />
-    <meta property="og:url" content="${ogMetaTags.url}" />
-    <meta property="og:image" content="${ogMetaTags.image}" />
-    <meta property="og:type" content="${ogMetaTags.type}" />
-
-    <link rel="canonical" href="${ogMetaTags.url}" />
+  ${ogMetaTags.title && `<meta property="og:title" content="${ogMetaTags.title}" />`}
+  ${ogMetaTags.description && `<meta name="description" content="${ogMetaTags.description}" />`}
+  ${ogMetaTags.description && `<meta property="og:description" content="${ogMetaTags.description}" />`}
+  ${ogMetaTags.url && `<meta property="og:url" content="${ogMetaTags.url}" />`}
+  ${ogMetaTags.image && `<meta property="og:image" content="${ogMetaTags.image}" />`}
+  ${ogMetaTags.site_name && `<meta property="og:site_name" content="${ogMetaTags.site_name}" />`}
+  ${ogMetaTags.type && `<meta property="og:type" content="${ogMetaTags.type}" />`}
+  ${ogMetaTags.url && `<link rel="canonical" href="${ogMetaTags.url}" />`}
   </Head>`
 
   const nuxtCode = `
-  // Using Nuxt Head (https://nuxt.com/docs/getting-started/seo-meta)
+  ${ogMetaTags && `// Using Nuxt Head (https://nuxt.com/docs/getting-started/seo-meta)`}
 
   head: {
-    title: '${ogMetaTags.title}',
+    ${ogMetaTags.title && `title: '${ogMetaTags.title}',`}
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '${ogMetaTags.description}' },
-      { hid: 'og:title', property: 'og:title', content: '${ogMetaTags.title}' },
-      { hid: 'og:description', property: 'og:description', content: '${ogMetaTags.description}' },
-      { hid: 'og:url', property: 'og:url', content: '${ogMetaTags.url}' },
-      { hid: 'og:image', property: 'og:image', content: '${ogMetaTags.image}' },
-      { hid: 'og:type', property: 'og:type', content: '${ogMetaTags.type}' },
+      ${ogMetaTags.description && `{ hid: 'description', name: 'description', content: '${ogMetaTags.description}' },`}
+      ${ogMetaTags.title && `{ hid: 'og:title', property: 'og:title', content: '${ogMetaTags.title}' },`}
+      ${ogMetaTags.description && `{ hid: 'og:description', property: 'og:description', content: '${ogMetaTags.description}' },`}
+      ${ogMetaTags.url && `{ hid: 'og:url', property: 'og:url', content: '${ogMetaTags.url}' },`}
+      ${ogMetaTags.image && `{ hid: 'og:image', property: 'og:image', content: '${ogMetaTags.image}' },`}
+      ${ogMetaTags.site_name && `{ hid: 'og:site_name', property: 'og:site_name', content: '${ogMetaTags.site_name},`}
+      ${ogMetaTags.type && `{ hid: 'og:type', property: 'og:type', content: '${ogMetaTags.type}' },`}
     ],
     link: [
-      { rel: "canonical", href: '${ogMetaTags.url}' }
+      ${ogMetaTags.url && `{ rel: 'canonical', href: '${ogMetaTags.url}' },`}
     ]
   }`
 
   const angularCode = `
-  // You need : import { Title, Meta } from '@angular/platform-browser';
+  ${ogMetaTags && `// You need : import { Meta } from '@angular/platform-browser';`}
 
   constructor(private metaTagService: Meta) {}
   ngOnInit() {
     this.metaTagService.addTags([
-      { name: 'description', content: '${ogMetaTags.description}' },
-      { property: 'og:title', content: '${ogMetaTags.title}' },
-      { property: 'og:description', content: '${ogMetaTags.description}' },
-      { property: 'og:url', content: '${ogMetaTags.url}' },
-      { property: 'og:image', content: '${ogMetaTags.image}' },
-      { property: 'og:type', content: '${ogMetaTags.type}' },
+      ${ogMetaTags.title && `{ property: 'og:title', content: '${ogMetaTags.title}' },`}
+      ${ogMetaTags.description && `{ name: 'description', content: '${ogMetaTags.description}' },`}
+      ${ogMetaTags.description && `{ property: 'og:description', content: '${ogMetaTags.description}' },`}
+      ${ogMetaTags.url && `{ property: 'og:url', content: '${ogMetaTags.url}' },`}
+      ${ogMetaTags.image && `{ property: 'og:image', content: '${ogMetaTags.image}' },`}
+      ${ogMetaTags.site_name && `{ property: 'og:site_name', content: '${ogMetaTags.site_name},`}
+      ${ogMetaTags.type && `{ property: 'og:type', content: '${ogMetaTags.type}' },`}
     ]);
-  }
-  `
+  }`
 
   const handleCopyCode = () => {
     navigator.clipboard.writeText(codeLang === "react" ? reactCode : codeLang === "vue" ? vueCode : codeLang === "next" ? nextCode : codeLang === "nuxt" ? nuxtCode : angularCode)

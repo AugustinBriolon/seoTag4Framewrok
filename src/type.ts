@@ -3,5 +3,6 @@ export interface OgMetaTags {
   description: string;
   url: string;
   image: string;
+  site_name: string;
   type: string;
 }
