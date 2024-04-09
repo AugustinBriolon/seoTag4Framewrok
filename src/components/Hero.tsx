@@ -6,8 +6,7 @@ export default function Hero() {
           MetaTags for Frameworks
         </h1>
         <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400 text-center">
-          The complete platform for adding metadata to your web framework. Effortlessly manage SEO, social sharing,
-          and embeds for your web apps.
+          The ultimate solution to generate meta tags for your frameworks. Simplify SEO, social sharing, and embeds management for your web apps with MetaTags for Frameworks.
         </p>
       </div>
     </section>

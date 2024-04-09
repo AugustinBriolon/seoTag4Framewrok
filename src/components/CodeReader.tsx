@@ -98,8 +98,8 @@ export default function CodeReader({
 
   return (
     <div className="relative mt-5 h-full w-full">
-      <pre className="h-full w-full overflow-auto  rounded-lg bg-gray-800 text-white p-4 rounded-md">
-        <code className="language-javascript">
+      <pre className="h-full w-full overflow-auto rounded-lg bg-gray-800 text-white p-4">
+        <code className="text-xs sm:text-sm">
           {codeLang === "react" && reactCode}
           {codeLang === "vue" && vueCode}
           {codeLang === "next" && nextCode}
